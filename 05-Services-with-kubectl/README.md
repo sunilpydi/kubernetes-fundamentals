@@ -21,6 +21,8 @@ kubectl get deploy
 # Create ClusterIp Service for Backend Rest App
 kubectl expose deployment my-backend-rest-app --port=8080 --target-port=8080 --name=my-backend-service
 kubectl get svc
+kubectl get pods 
+kubectl get logs -f <pods name>
 Observation: We don't need to specify "--type=ClusterIp" because default setting is to create ClusterIp Service. 
 ```
 - **Important Note:** If backend application port (Container Port: 8080) and Service Port (8080) are same we don't need to use **--target-port=8080** but for avoiding the confusion i have added it. Same case applies to frontend application and service. 
